@@ -1,0 +1,13 @@
+#SPDX-License-Identifier: MIT-0
+---
+# tasks file for hyprland
+- name: Install hyprland
+  ansible.builtin.package:
+    - hyprland
+    - mako
+    - brightnessctl
+    - swaybar
+    - swayosd
+    - alsa-lib
+    - swww
+  state: present
