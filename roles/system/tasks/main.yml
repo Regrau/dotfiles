@@ -1,0 +1,37 @@
+#SPDX-License-Identifier: MIT-0
+---
+# tasks file for system
+#
+- name: Install system packages
+  ansible.builtin.package:
+    name:
+      - fzf
+      - git
+      - networkmanager
+      - iwd
+      - zsh
+    state: present
+  become: true
+
+- name: Remove numbersign from russian keymap
+  ansible.builtin.lineinfile:
+    path: /usr/share/X11/xkb/symbols/ru
+    regexp: 'key <AE03>  {[          3,  numerosign  ]};'
+    line: 'key <AE03>  {[          3,  numbersign  ]};'
+  become: true
+
+- name: Set iwd as backend for Networkmanager
+  ansible.builtin.copy:
+    src: NetworkManager/conf.d/wifi_backend.conf
+    dest: /etc/NetworkManager/conf.d/wifi_backend.conf
+    owner: root
+    group: root
+    mode: '0644'
+  become: true
+
+- name: Allow for passwordless sudo for regrau
+  ansible.builtin.copy:
+    content: "regrau ALL=(ALL:ALL) NOPASSWD: ALL"
+    dest: "/etc/sudoers.d/regrau_nopasswd"
+    mode: 0440
+  become: true

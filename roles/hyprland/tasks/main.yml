@@ -3,11 +3,14 @@
 # tasks file for hyprland
 - name: Install hyprland
   ansible.builtin.package:
-    - hyprland
-    - mako
-    - brightnessctl
-    - swaybar
-    - swayosd
-    - alsa-lib
-    - swww
-  state: present
+    name:
+      - hyprland
+      - mako
+      - brightnessctl
+      - waybar
+      - swayosd
+      - alsa-lib
+      - swww
+      - mpv
+    state: present
+  become: true
