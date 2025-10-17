@@ -5,3 +5,5 @@
       tags: [system]
     - role: hyprland
       tags: [hyprland]
+    - role: neovim
+      tags: [neovim]

@@ -1,0 +1,15 @@
+#SPDX-License-Identifier: MIT-0
+---
+# tasks file for neovim
+#
+- name: Install neovim
+  ansible.builtin.package:
+    name: neovim
+  become: true
+
+
+- name: Configure neovim
+  ansible.builtin.copy:
+    src: nvim-config/
+    dest: "{{ ansible_env.HOME }}/.config/nvim/"
+
