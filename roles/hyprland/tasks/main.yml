@@ -5,6 +5,8 @@
   ansible.builtin.package:
     name:
       - hyprland
+      - hyprlock
+      - hypridle
       - mako
       - brightnessctl
       - waybar
@@ -14,3 +16,9 @@
       - mpv
     state: present
   become: true
+
+- name: Confiigure hyprland
+  ansible.builtin.copy:
+    src: hypr/
+    dest: "{{ ansible_env.HOME }}/.config/hypr/"
+
