@@ -10,4 +10,4 @@ list-tags: generate_venv
 	. .venv/bin/activate; ansible-playbook -i inventory laptop.yml --list-tags
 
 configure-system:
-	. .venv/bin/activate; ansible-playbook -i inventory laptop.yml --tags "system,neovim"
+	. .venv/bin/activate; ansible-playbook -i inventory laptop.yml --tags "system,neovim,wezterm"

@@ -7,3 +7,5 @@
       tags: [hyprland]
     - role: neovim
       tags: [neovim]
+    - role: wezterm
+      tags: [wezterm]
