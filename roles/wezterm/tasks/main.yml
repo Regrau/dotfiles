@@ -1,0 +1,12 @@
+---
+- name: Enable wezterm Copr repository
+  community.general.copr:
+    name: wezfurlong/wezterm-nightly
+    state: enabled
+  become: true
+
+- name: Install wezterm
+  ansible.builtin.package:
+    name: wezterm
+    state: present
+  become: true
